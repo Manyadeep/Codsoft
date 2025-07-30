@@ -1,0 +1,55 @@
+#  Movie Rating Prediction
+
+##  Objective
+Build a machine learning model to predict IMDb movie ratings using features like duration, genre, votes, release year, director, and lead actors.
+
+---
+
+##  Dataset Overview
+The dataset contains information about over 15,000 movies including:
+
+-  `Name` – Movie title  
+-  `Year` – Release year (cleaned to numeric)  
+- `Duration` – Movie duration in minutes (extracted from text like "109 min")  
+- `Genre` – Movie genre  
+- `Rating` – IMDb rating (target variable)  
+- `Votes` – Number of audience votes (cleaned by removing commas)  
+- `Director`, `Actor 1`, `Actor 2`, `Actor 3` – Categorical fields for people involved
+
+---
+
+ Workflow
+
+1. **Data Cleaning**
+   - Removed missing values
+   - Converted `Votes` and `Duration` to numeric
+   - Extracted 4-digit year from `Year`
+
+2. **Label Encoding**
+   - Encoded `Genre`, `Director`, `Actor 1`, `Actor 2`, `Actor 3` using `LabelEncoder`
+
+3. **Feature Scaling**
+   - Standardized all features using `StandardScaler`
+
+4. **Model Used**
+   - `LinearRegression` from scikit-learn
+
+5. **Evaluation Metrics**
+   - Mean Absolute Error (MAE)
+   - Root Mean Squared Error (RMSE)
+   - R² Score
+   - Cross-validation (5-fold)
+
+---
+
+##  Model Results
+
+| Metric              | Value  |
+|---------------------|--------|
+| MAE                 | 1.05   |
+| RMSE                | 1.30   |
+| R² Score            | 0.09   |
+| Cross-Val R² (mean) | 0.08   |
+
+
+
